@@ -17,14 +17,15 @@ const brandName="Dream Travel"
 const toggleMEnu = () =>{
     
     document.querySelector('.links').classList.toggle('translate-x-0')
+   
 }
 
-// const scrollThis = (e) => {
-//     e.preventDefault()
-//     const innerText = e.target.innerText;
-//     this.dispatchEvent(new CustomEvent('scroll-this', { detail: innerText, bubbles:true, composed:true}))
-//     this.toggleMEnu()
-// }
+const scrollThis = (e) => {
+    // e.preventDefault()
+    // const innerText = e.target.innerText;
+    // this.dispatchEvent(new CustomEvent('scroll-this', { detail: innerText, bubbles:true, composed:true}))
+    toggleMEnu()
+}
 
   return (
     <nav className="text-white bg-transparent max-h-20   fixed top-0 w-screen sm:w-11/12 left-1/2 -translate-x-1/2 z-50 flex justify-between items-center p-2 px-5">
@@ -35,7 +36,7 @@ const toggleMEnu = () =>{
                 <ul className="links absolute top-full left-0  -translate-x-[120%]  w-full rounded-lg text-center  transition
                 sm:relative sm:-translate-x-0 sm:flex-row sm:flex sm:justify-end sm:w-max 
                 ">
-                    {links.map((link, index )=> <Link  key={index} to={link.component}> <li key={index}  className="p-2 sm:text-black text-white font-bold sm:bg-transparent  bg-slate-800/60 hover:bg-[#f4a836] hover:text-white my-1 sm:my-0 rounded-lg cursor-pointer transition
+                    {links.map((link, index )=> <Link  key={index} to={link.component}> <li key={index} onClick={scrollThis} className="p-2 sm:text-black text-white font-bold sm:bg-transparent  bg-slate-800/60 hover:bg-[#f4a836] hover:text-white my-1 sm:my-0 rounded-lg cursor-pointer transition
                     ">{link.name}</li></Link>)}
                 </ul>
 
